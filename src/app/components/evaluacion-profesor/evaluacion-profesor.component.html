@@ -1,0 +1,352 @@
+<nav class="navbar navbar-expand-md navbar-dark bd-navbar mb-4">
+  <a class="navbar-brand" href=""><img src="assets/brand/cerebrito.png" width="30" height="30" class="d-inline-block align-top"
+      alt=""> Psycho</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="">Ayuda</a>
+      </li>
+    </ul>
+    <form class="form-inline mt-2 mt-md-0">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link">Profesor<span class="sr-only">(current)</span></a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Fabian Lasso</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="">Perfil</a>
+            <a class="dropdown-item" href="">Cursos</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="">Cerrar Sesión</a>
+          </div>
+        </li>
+      </ul>
+      <img src="assets/img/foto.jpg" alt="Responsive image" class="rounded-circle" width="40" height="40">
+    </form>
+  </div>
+</nav>
+
+<div class="jumbotron jumbotron-fluid ajustarMargen">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-5">
+        <img src="assets/img/cerebrito.png" class="img-fluid float-right" alt="Responsive image" height="50%" width="50%">
+      </div>
+      <div class="col-sm-7">
+        <br />
+        <br />
+        <br />
+        <h1 class="display-4">Psycho</h1>
+        <p class="lead">Usted se encuentra en el modulo de evaluación de estudiantes.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <h1 class="display-4">Psiquiatría de Enlace</h1><br />
+  <div class="row">
+    <div class="col-sm-4 col-xs-12">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="assets/img/estudiante1.jpg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Nombre Estudiante</h5>
+            <p class="card-text"><strong>Programa Acádemico: </strong>Especialización en Psiquiatría</p>
+            <p class="card-text"><strong>En rotación: </strong> Si/No</p>
+          <button type="button" class="btn btn-primary ajustar" data-toggle="modal" data-target="#exampleModalCenter">
+            Evaluar
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalCenterTitle">Evaluar a Nombre del Estudiante</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <select class="form-control">
+                        <option>Objetivos de Aprendizaje</option>
+                        <option>Objetivo1</option>
+                        <option>Objetivo2</option>
+                        <option>Objetivo3</option>
+                      </select>
+
+                      <br/>
+
+                      <div class="row">
+                        <div class="col-sm-4">
+                            <select class="form-control">
+                                <option>Objetivos del Saber</option>
+                                <option>Objetivo1</option>
+                                <option>Objetivo2</option>
+                                <option>Objetivo3</option>
+                              </select>
+                              <br/>
+
+                              <select class="form-control">
+                                  <option>Método de Assessment</option>
+                                  <option>Método1</option>
+                                  <option>Método2</option>
+                                  <option>Método3</option>
+                                </select>
+                                <br/>
+
+                                <label for="customRange2">Example range</label>
+                            <input type="range" class="custom-range" min="0" max="5" id="customRange2">
+                        </div>
+                        <div class="col-sm-4">
+                            <select class="form-control">
+                                <option>Objetivos del Hacer</option>
+                                <option>Objetivo1</option>
+                                <option>Objetivo2</option>
+                                <option>Objetivo3</option>
+                              </select>
+                              <br/>
+
+                              <select class="form-control">
+                                  <option>Método de Assessment</option>
+                                  <option>Método1</option>
+                                  <option>Método2</option>
+                                  <option>Método3</option>
+                                </select>
+                              <br/>
+
+                              <label for="customRange3">Example range</label>
+                              <input type="range" class="custom-range" min="0" max="5" id="customRange3">
+
+                        </div>
+                        <div class="col-sm-4">
+                            <select class="form-control">
+                                <option>Objetivos del Ser</option>
+                                <option>Objetivo1</option>
+                                <option>Objetivo2</option>
+                                <option>Objetivo3</option>
+                              </select>
+                              <br/>
+
+                              <select class="form-control">
+                                  <option>Método de Assessment</option>
+                                  <option>Método1</option>
+                                  <option>Método2</option>
+                                  <option>Método3</option>
+                                </select>
+                                <br/>
+                                <label for="customRange4">Example range</label>
+                                <input type="range" class="custom-range" min="0" max="5" id="customRange4">
+                        </div>
+                  
+                      </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-primary">Guardar cambios</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+    </div>
+    <div class="col-sm-4 col-xs-12">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="assets/img/estudiante3.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Nombre Estudiante</h5>
+          <p class="card-text"><strong>Programa Acádemico: </strong>Especialización en Psiquiatría</p>
+          <p class="card-text"><strong>En rotación: </strong> Si/No</p>
+          <button type="button" class="btn btn-primary ajustar" data-toggle="modal" data-target="#exampleModalCenter">
+            Evaluar
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-primary">Guardar cambios</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4 col-xs-12">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="assets/img/estudiante2.jpg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Nombre Estudiante</h5>
+            <p class="card-text"><strong>Programa Acádemico: </strong>Especialización en Psiquiatría</p>
+            <p class="card-text"><strong>En rotación: </strong> Si/No</p>
+          <button type="button" class="btn btn-primary ajustar" data-toggle="modal" data-target="#exampleModalCenter">
+            Evaluar
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-primary">Guardar cambios</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4 col-xs-12">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="assets/img/estudiante2.jpg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Nombre Estudiante</h5>
+            <p class="card-text"><strong>Programa Acádemico: </strong>Especialización en Psiquiatría</p>
+            <p class="card-text"><strong>En rotación: </strong> Si/No</p>
+          <button type="button" class="btn btn-primary ajustar" data-toggle="modal" data-target="#exampleModalCenter">
+            Evaluar
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-primary">Guardar cambios</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4 col-xs-12">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="assets/img/estudiante1.jpg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Nombre Estudiante</h5>
+            <p class="card-text"><strong>Programa Acádemico: </strong>Especialización en Psiquiatría</p>
+            <p class="card-text"><strong>En rotación: </strong> Si/No</p>
+          <button type="button" class="btn btn-primary ajustar" data-toggle="modal" data-target="#exampleModalCenter">
+            Evaluar
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-primary">Guardar cambios</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4 col-xs-12">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="assets/img/estudiante3.jpg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Nombre Estudiante</h5>
+            <p class="card-text"><strong>Programa Acádemico: </strong>Especialización en Psiquiatría</p>
+            <p class="card-text"><strong>En rotación: </strong> Si/No</p>
+          <button type="button" class="btn btn-primary ajustar" data-toggle="modal" data-target="#exampleModalCenter">
+            Evaluar
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-primary">Guardar cambios</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br/>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+          <img src="assets/brand/cerebrito.png"  width="50" height="50" class="" alt="Responsive image"> <span> Psycho. Copyright ©. 2018</span>
+      </div>
+      </div>
+    </div>     
+</footer>
