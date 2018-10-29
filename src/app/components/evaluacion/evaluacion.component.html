@@ -1,0 +1,185 @@
+<nav class="navbar navbar-expand-md navbar-dark bd-navbar mb-4">
+    <a class="navbar-brand" href=""><img src="assets/brand/cerebrito.png" width="30" height="30" class="d-inline-block align-top"
+        alt=""> Psycho</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/evaluacion">Ayuda</a>
+        </li>
+      </ul>
+      <form class="form-inline mt-2 mt-md-0">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item"><a class="nav-link">Profesor<span class="sr-only">(current)</span></a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false" *ngFor="let prof of profesores">
+              {{prof.nombre}}</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="">Perfil</a>
+              <a class="dropdown-item" href="">Cursos</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="">Cerrar Sesión</a>
+            </div>
+          </li>
+        </ul>
+        <img src="assets/img/foto.jpg" alt="Responsive image" class="rounded-circle" width="40" height="40">
+      </form>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+
+      <table class="table table-bordered">
+          <thead>
+            <tr align="center" valign="">
+              <th scope="col" >Objetivos</th>
+              <th scope="col">Criterios</th>
+              <th scope="col">Método de Assessment</th>
+              <th scope="col">1</th>
+              <th scope="col">2</th>
+              <th scope="col">3</th>
+              <th scope="col">4</th>
+              <th scope="col">5</th>
+              <th scope="col">6</th>
+              <th scope="col">7</th>
+              <th scope="col">8</th>
+              <th scope="col">9</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" rowspan="3" style="text-align:center; vertical-align: middle;">Saber</th>
+              <td>Principales GSACUYGASIUCGBA HASBCIJGBACHBASK HAGSCHABSCIHBASICH HABSCGIHAGBSCIHBAS
+                <div class="row">
+                  <div class="col-sm-1">
+                      <p> <span class="badge badge-secondary">AAC</span></p>
+                  </div>
+                  <div class="col-sm-1">
+                      <p> <span class="badge badge-secondary">BBC</span></p>
+                  </div>
+                </div> 
+              </td>
+              <td>
+                  <select class="form-control">
+                      <option>Seleccione</option>
+                  </select>
+            </td>
+              <td><button type="button" class="btn btn-primary">1</button></td>
+              <td><button type="button" class="btn btn-primary">2</button></td>
+              <td><button type="button" class="btn btn-primary">3</button></td>
+              <td><button type="button" class="btn btn-primary">4</button></td>
+              <td><button type="button" class="btn btn-primary">5</button></td>
+              <td><button type="button" class="btn btn-primary">6</button></td>
+              <td><button type="button" class="btn btn-primary">7</button></td>
+              <td><button type="button" class="btn btn-primary">8</button></td>
+              <td><button type="button" class="btn btn-primary">9</button></td>
+            </tr>
+            <tr>
+                <td>Principales .....</td>
+                <td>
+                    <select class="form-control">
+                        <option>Seleccione</option>
+                    </select>
+              </td>
+                <td><button type="button" class="btn btn-primary">1</button></td>
+                <td><button type="button" class="btn btn-primary">2</button></td>
+                <td><button type="button" class="btn btn-primary">3</button></td>
+                <td><button type="button" class="btn btn-primary">4</button></td>
+                <td><button type="button" class="btn btn-primary">5</button></td>
+                <td><button type="button" class="btn btn-primary">6</button></td>
+                <td><button type="button" class="btn btn-primary">7</button></td>
+                <td><button type="button" class="btn btn-primary">8</button></td>
+                <td><button type="button" class="btn btn-primary">9</button></td>
+              </tr>
+              <tr>
+                  <td>Principales .....</td>
+                  <td>
+                      <select class="form-control">
+                          <option>Seleccione</option>
+                      </select>
+                </td>
+                  <td><button type="button" class="btn btn-primary">1</button></td>
+                  <td><button type="button" class="btn btn-primary">2</button></td>
+                  <td><button type="button" class="btn btn-primary">3</button></td>
+                  <td><button type="button" class="btn btn-primary">4</button></td>
+                  <td><button type="button" class="btn btn-primary">5</button></td>
+                  <td><button type="button" class="btn btn-primary">6</button></td>
+                  <td><button type="button" class="btn btn-primary">7</button></td>
+                  <td><button type="button" class="btn btn-primary">8</button></td>
+                  <td><button type="button" class="btn btn-primary">9</button></td>
+                </tr>
+            <tr>
+              <th scope="row" rowspan="3">Hacer</th>
+              <td>Principales GSACUYGASIUCGBA HASBCIJGBACHBASK HAGSCHABSCIHBASICH HABSCGIHAGBSCIHBAS</td>
+              <td>
+                  <select class="form-control">
+                      <option>Seleccione</option>
+                  </select>
+            </td>
+              <td><button type="button" class="btn btn-primary">1</button></td>
+              <td><button type="button" class="btn btn-primary">2</button></td>
+              <td><button type="button" class="btn btn-primary">3</button></td>
+              <td><button type="button" class="btn btn-primary">4</button></td>
+              <td><button type="button" class="btn btn-primary">5</button></td>
+              <td><button type="button" class="btn btn-primary">6</button></td>
+              <td><button type="button" class="btn btn-primary">7</button></td>
+              <td><button type="button" class="btn btn-primary">8</button></td>
+              <td><button type="button" class="btn btn-primary">9</button></td>
+            </tr>
+            <tr>
+                <td>Principales .....</td>
+                <td>
+                    <select class="form-control">
+                        <option>Seleccione</option>
+                    </select>
+              </td>
+                <td><button type="button" class="btn btn-primary">1</button></td>
+                <td><button type="button" class="btn btn-primary">2</button></td>
+                <td><button type="button" class="btn btn-primary">3</button></td>
+                <td><button type="button" class="btn btn-primary">4</button></td>
+                <td><button type="button" class="btn btn-primary">5</button></td>
+                <td><button type="button" class="btn btn-primary">6</button></td>
+                <td><button type="button" class="btn btn-primary">7</button></td>
+                <td><button type="button" class="btn btn-primary">8</button></td>
+                <td><button type="button" class="btn btn-primary">9</button></td>
+              </tr>
+              <tr>
+                  <td>Principales .....</td>
+                  <td>
+                      <select class="form-control">
+                          <option>Seleccione</option>
+                      </select>
+                </td>
+                  <td><button type="button" class="btn btn-primary">1</button></td>
+                  <td><button type="button" class="btn btn-primary">2</button></td>
+                  <td><button type="button" class="btn btn-primary">3</button></td>
+                  <td><button type="button" class="btn btn-primary">4</button></td>
+                  <td><button type="button" class="btn btn-primary">5</button></td>
+                  <td><button type="button" class="btn btn-primary">6</button></td>
+                  <td><button type="button" class="btn btn-primary">7</button></td>
+                  <td><button type="button" class="btn btn-primary">8</button></td>
+                  <td><button type="button" class="btn btn-primary">9</button></td>
+                </tr>
+          </tbody>
+        </table>
+
+  </div>
+
+  <br/>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+          <img src="assets/brand/cerebrito.png"  width="50" height="50" class="" alt="Responsive image"> <span> Psycho. Copyright ©. 2018</span>
+      </div>
+      </div>
+    </div>     
+</footer>

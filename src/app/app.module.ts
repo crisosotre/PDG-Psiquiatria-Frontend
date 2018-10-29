@@ -7,11 +7,14 @@ import { EvaluacionProfesorComponent } from './components/evaluacion-profesor/ev
 import { dataService } from './dataservice/data.service';
 import { HttpModule } from '@angular/http';
 import { Profesor } from './dataservice/profesor';
+import { Estudiante } from './dataservice/estudiante';
+import { EvaluacionComponent } from './components/evaluacion/evaluacion.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EvaluacionProfesorComponent
+    EvaluacionProfesorComponent,
+    EvaluacionComponent
   ],
   imports: [
     AppRoutingModule,
@@ -19,7 +22,7 @@ import { Profesor } from './dataservice/profesor';
     NgbModule,
     HttpModule,
   ],
-  providers: [dataService,  Profesor],
+  providers: [dataService,  Profesor, Estudiante],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
