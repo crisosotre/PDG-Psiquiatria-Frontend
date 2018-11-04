@@ -3,58 +3,51 @@
   <div class="card-body">
       <h5 class="card-title">{{est.nombre}} {{est.apellido}}</h5>
       <p class="card-text"><strong>Programa Acádemico: </strong>Especialización en Psiquiatría</p>  
-    <button type="button" class="btn btn-primary ajustar" data-toggle="modal" data-target="#exampleModalCenter">
-      Evaluar
-    </button>
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-      aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalCenterTitle">Evaluación</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body" >
-              <div class="row">
-                
-                <div class="col-sm-4" style="padding-bottom: 7%">
-                  <button type="button" class="btn btn-outline-primary btnCompetencia" routerLink="/evaluacion" data-dismiss="modal">Competencia 1</button>
-                </div>
-          
-                <div class="col-sm-4" style="padding-bottom: 7%">
-                  <button type="button" class="btn btn-outline-primary btnCompetencia" routerLink="/evaluacion" data-dismiss="modal">Competencia 2</button>
-                </div>
-               
-                <div class="col-sm-4" style="padding-bottom: 7%">
-                  <button type="button" class="btn btn-outline-primary btnCompetencia" routerLink="/evaluacion" data-dismiss="modal">Competencia 3</button>
-                </div>
-                
-                <div class="col-sm-4" style="padding-bottom: 7%">
-                  <button type="button" class="btn btn-outline-primary btnCompetencia" routerLink="/evaluacion" data-dismiss="modal">Competencia 4</button>
-                </div>
-               
-                <div class="col-sm-4" style="padding-bottom: 7%">
-                  <button type="button" class="btn btn-outline-primary btnCompetencia" routerLink="/evaluacion" data-dismiss="modal">Competencia 5</button>
-                </div>
-                
-                <div class="col-sm-4" style="padding-bottom: 7%">
-                  <button type="button" class="btn btn-outline-primary btnCompetencia" routerLink="/evaluacion" data-dismiss="modal">Competencia 6</button>
-                </div>
-               
-                <div class="col-sm-4" style="padding-bottom: 7%">
-                  <button type="button" class="btn btn-outline-primary btnCompetencia" routerLink="/evaluacion" data-dismiss="modal">Competencia 7</button>
-                </div>
-              </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal" >Cancelar</button>
-          </div>
-        </div>
-      </div>
-    </div>
+      <button type="button" class="btn btn-primary" (click)="abrir(content, est)">Evaluar</button>
   </div>
 </div>
+
+    <!-- Modal -->
+    <ng-template #content let-c="close" let-d="dismiss">
+      <div class="modal-header">
+        <h5>Evaluar a {{ seleccionado.nombre }} {{seleccionado.apellido}}</h5>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" >
+        <div class="row">
+          
+          <div class="col-sm-4" style="padding-bottom: 7%">
+            <button type="button" class="btn btn-outline-primary btnCompetencia" (click)="enviarValores(1)">Competencia 1</button>
+          </div>
+    
+          <div class="col-sm-4" style="padding-bottom: 7%">
+            <button type="button" class="btn btn-outline-primary btnCompetencia" (click)="enviarValores(2)">Competencia 2</button>
+          </div>
+         
+          <div class="col-sm-4" style="padding-bottom: 7%">
+            <button type="button" class="btn btn-outline-primary btnCompetencia" (click)="enviarValores(3)" >Competencia 3</button>
+          </div>
+          
+          <div class="col-sm-4" style="padding-bottom: 7%">
+            <button type="button" class="btn btn-outline-primary btnCompetencia" (click)="enviarValores(4)" >Competencia 4</button>
+          </div>
+         
+          <div class="col-sm-4" style="padding-bottom: 7%">
+            <button type="button" class="btn btn-outline-primary btnCompetencia" (click)="enviarValores(5)" >Competencia 5</button>
+          </div>
+          
+          <div class="col-sm-4" style="padding-bottom: 7%">
+            <button type="button" class="btn btn-outline-primary btnCompetencia" (click)="enviarValores(6)">Competencia 6</button>
+          </div>
+         
+          <div class="col-sm-4" style="padding-bottom: 7%">
+            <button type="button" class="btn btn-outline-primary btnCompetencia" (click)="enviarValores(7)">Competencia 7</button>
+          </div>
+        </div>
+    </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-primary" (click)="c('Close click')">Cerrar</button>
+      </div>
+    </ng-template>

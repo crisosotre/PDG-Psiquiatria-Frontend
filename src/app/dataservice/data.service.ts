@@ -29,6 +29,12 @@ export class dataService {
                 .then(response => response.json() as Competencia[])
             }
 
+            getCompetenciaPorId(id: number): Promise<Competencia>{
+                return this.http.get('http://localhost:8000/competencia/'+id+'?format=json', {headers: this.headers})
+                .toPromise()
+                .then(response => response.json() as Competencia)
+            }
+
 
 }
 

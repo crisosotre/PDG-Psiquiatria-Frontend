@@ -1,7 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Estudiante } from './../../dataservice/estudiante';
-import { Competencia } from './../../dataservice/competencia';
-import { dataService } from './../../dataservice/data.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
+import { Globals } from "./../../dataservice/globals";
+
 @Component({
   selector: 'app-card-estudiante',
   templateUrl: './card-estudiante.component.html',
@@ -10,16 +12,29 @@ import { dataService } from './../../dataservice/data.service';
 export class CardEstudianteComponent implements OnInit {
 
   @Input() est: Estudiante;
-  competencias: Competencia[];
 
-  getCompetencias() : void {
-    this.dataService.getCompetencias().then(competencias => this.competencias = competencias);
-  }
+  seleccionado: Estudiante;
 
-  constructor(private dataService: dataService,private competencia: Competencia) { }
+
+  constructor(private modalService: NgbModal, private router: Router, private globals: Globals) { }
 
   ngOnInit() {
-    this.getCompetencias();
+  
+  }
+
+  abrir(content,estudiante: Estudiante){
+    this.seleccionado = estudiante;
+    this.modalService.open(content, { centered: true, size: 'lg' });
+  }
+
+  enviarValores(numCompetencia: number){
+    console.log(this.seleccionado.nombre);
+    this.globals.estudiante = this.seleccionado;
+    console.log(numCompetencia);
+    this.globals.id_competencia=numCompetencia;
+    this.router.navigate(['evaluacion']);
+    this.modalService.dismissAll();
+
   }
 
 }

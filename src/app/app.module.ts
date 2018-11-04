@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './/app-routing.module';
 import { AppComponent } from './app.component';
 import { EvaluacionProfesorComponent } from './components/evaluacion-profesor/evaluacion-profesor.component';
@@ -20,6 +20,8 @@ import { ResultadosEstudianteComponent } from './components/resultados-estudiant
 import { ResultadosProfesorComponent } from './components/resultados-profesor/resultados-profesor.component';
 import { CardEstudianteComponent } from './components/card-estudiante/card-estudiante.component';
 import { AdministradorComponent } from './components/administrador/administrador.component';
+import { EvaluacionService } from './services/evaluacion.service';
+import { Globals } from './dataservice/globals';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,7 @@ import { AdministradorComponent } from './components/administrador/administrador
     NgbModule,
     HttpModule,
   ],
-  providers: [dataService,  Profesor, Estudiante, Competencia],
+  providers: [dataService,  Profesor, Estudiante, Competencia, EvaluacionService, Globals],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
