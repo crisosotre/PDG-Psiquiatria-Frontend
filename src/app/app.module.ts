@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './/app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +23,18 @@ import { CardEstudianteComponent } from './components/card-estudiante/card-estud
 import { AdministradorComponent } from './components/administrador/administrador.component';
 import { EvaluacionService } from './services/evaluacion.service';
 import { Globals } from './dataservice/globals';
+import { Assessment } from './dataservice/assessment';
+import { CompetenciaCurso } from './dataservice/competencia-curso';
+import { CompetenciaObjetivo } from './dataservice/competencia-objetivo';
+import { Curso } from './dataservice/curso';
+import { Evaluacion } from './dataservice/evaluacion';
+import { MomentoEvaluativo } from './dataservice/momento-evaluativo';
+import { ObjetivoAssessment } from './dataservice/objetivo-assessment';
+import { Objetivo } from './dataservice/objetivo';
+import { Perfil } from './dataservice/perfil'; 
+import { TipoAssessment } from './dataservice/tipo-assessment';
+import { TipoObjetivo } from './dataservice/tipo-objetivo';
+import { VariablesConfiguracion } from './dataservice/variables-configuracion';
 
 @NgModule({
   declarations: [
@@ -43,9 +56,29 @@ import { Globals } from './dataservice/globals';
     AppRoutingModule,
     BrowserModule,
     NgbModule,
+    FormsModule,
     HttpModule,
   ],
-  providers: [dataService,  Profesor, Estudiante, Competencia, EvaluacionService, Globals],
+  providers: [
+    dataService,  
+    Profesor, 
+    Estudiante, 
+    Competencia, 
+    EvaluacionService, 
+    Globals,
+    Assessment,
+    CompetenciaCurso,
+    CompetenciaObjetivo,
+    Curso,
+    Evaluacion,
+    MomentoEvaluativo,
+    ObjetivoAssessment,
+    Objetivo,
+    Perfil,
+    TipoAssessment,
+    TipoObjetivo,
+    VariablesConfiguracion
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

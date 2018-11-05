@@ -14,6 +14,7 @@ export class CardEstudianteComponent implements OnInit {
   @Input() est: Estudiante;
 
   seleccionado: Estudiante;
+  compSeleccionada: string;
 
 
   constructor(private modalService: NgbModal, private router: Router, private globals: Globals) { }
@@ -27,14 +28,21 @@ export class CardEstudianteComponent implements OnInit {
     this.modalService.open(content, { centered: true, size: 'lg' });
   }
 
-  enviarValores(numCompetencia: number){
+  enviarValores(valor: string){
     console.log(this.seleccionado.nombre);
     this.globals.estudiante = this.seleccionado;
-    console.log(numCompetencia);
-    this.globals.id_competencia=numCompetencia;
-    this.router.navigate(['evaluacion']);
+    console.log(valor);
+    this.valorCompetencia(valor);
+    console.log(this.compSeleccionada);
+    this.globals.id_competencia=this.compSeleccionada;
+    this.router.navigateByUrl('/evaluacion');
     this.modalService.dismissAll();
 
+  }
+
+  valorCompetencia(valor: string){
+    console.log(valor);
+    this.compSeleccionada = valor;
   }
 
 }
