@@ -35,6 +35,8 @@ import { Perfil } from './dataservice/perfil';
 import { TipoAssessment } from './dataservice/tipo-assessment';
 import { TipoObjetivo } from './dataservice/tipo-objetivo';
 import { VariablesConfiguracion } from './dataservice/variables-configuracion';
+import { UsuarioPerfil } from './dataservice/usuario-perfil';
+import { UsuarioCurso } from './dataservice/usuario-curso';
 
 @NgModule({
   declarations: [
@@ -77,7 +79,9 @@ import { VariablesConfiguracion } from './dataservice/variables-configuracion';
     Perfil,
     TipoAssessment,
     TipoObjetivo,
-    VariablesConfiguracion
+    VariablesConfiguracion,
+    UsuarioPerfil,
+    UsuarioCurso
   ],
   bootstrap: [AppComponent]
 })

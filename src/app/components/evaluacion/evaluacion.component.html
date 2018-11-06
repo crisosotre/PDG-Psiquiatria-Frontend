@@ -45,60 +45,60 @@
                 </div> 
               </td>
               <td *ngIf="obj.id_tipo_objetivo == 1">
-                  <select class="form-control">
-                      <option>Seleccione</option>
+                  <select [(ngModel)]="assessmentSeleccionado" class="form-control">
+                      <option>Seleccione</option>          
                       <option *ngFor="let ass of metodosAssessment">{{ass.abreviatura}}</option>
                   </select>
             </td>
-              <td *ngIf="obj.id_tipo_objetivo == 1"><button type="button" class="btn btn-primary" (click)="crearEvaluacion(obj,1,ass.abreviatura)">1</button></td>
-              <td *ngIf="obj.id_tipo_objetivo == 1"><button type="button" class="btn btn-primary" (click)="crearEvaluacion(obj,2,ass.abreviatura)">2</button></td>
-              <td *ngIf="obj.id_tipo_objetivo == 1"><button type="button" class="btn btn-primary" (click)="crearEvaluacion(obj,3,ass.abreviatura)">3</button></td>
-              <td *ngIf="obj.id_tipo_objetivo == 1"><button type="button" class="btn btn-primary" (click)="crearEvaluacion(obj,4,ass.abreviatura)">4</button></td>
-              <td *ngIf="obj.id_tipo_objetivo == 1"><button type="button" class="btn btn-primary" (click)="crearEvaluacion(obj,5,ass.abreviatura)">5</button></td>
-              <td *ngIf="obj.id_tipo_objetivo == 1"><button type="button" class="btn btn-primary" (click)="crearEvaluacion(obj,6,ass.abreviatura)">6</button></td>
-              <td *ngIf="obj.id_tipo_objetivo == 1"><button type="button" class="btn btn-primary" (click)="crearEvaluacion(obj,7,ass.abreviatura)">7</button></td>
-              <td *ngIf="obj.id_tipo_objetivo == 1"><button type="button" class="btn btn-primary" (click)="crearEvaluacion(obj,8,ass.abreviatura)">8</button></td>
-              <td *ngIf="obj.id_tipo_objetivo == 1"><button type="button" class="btn btn-primary" (click)="crearEvaluacion(obj,9,ass.abreviatura)">9</button></td>
+              <td *ngIf="obj.id_tipo_objetivo == 1"><button type="button" class="btn btn-primary" (click)="evaluar(obj,1)">1</button></td>
+              <td *ngIf="obj.id_tipo_objetivo == 1"><button type="button" class="btn btn-primary" (click)="evaluar(obj,2)">2</button></td>
+              <td *ngIf="obj.id_tipo_objetivo == 1"><button type="button" class="btn btn-primary" (click)="evaluar(obj,3)">3</button></td>
+              <td *ngIf="obj.id_tipo_objetivo == 1"><button type="button" class="btn btn-primary" (click)="evaluar(obj,4)">4</button></td>
+              <td *ngIf="obj.id_tipo_objetivo == 1"><button type="button" class="btn btn-primary" (click)="evaluar(obj,5)">5</button></td>
+              <td *ngIf="obj.id_tipo_objetivo == 1"><button type="button" class="btn btn-primary" (click)="evaluar(obj,6)">6</button></td>
+              <td *ngIf="obj.id_tipo_objetivo == 1"><button type="button" class="btn btn-primary" (click)="evaluar(obj,7)">7</button></td>
+              <td *ngIf="obj.id_tipo_objetivo == 1"><button type="button" class="btn btn-primary" (click)="evaluar(obj,8)">8</button></td>
+              <td *ngIf="obj.id_tipo_objetivo == 1"><button type="button" class="btn btn-primary" (click)="evaluar(obj,9)">9</button></td>
             
             </tr>
             <tr *ngFor="let obj of objetivosCompetencia">
               <th style="text-align:center; vertical-align: middle;" *ngIf="obj.id_tipo_objetivo==2">Hacer</th>
               <td *ngIf="obj.id_tipo_objetivo==2">{{obj.desc_objetivo}}</td>
               <td *ngIf="obj.id_tipo_objetivo==2">
-                  <select class="form-control">
-                      <option>Seleccione</option>
+                  <select class="form-control" [(ngModel)]="assessmentSeleccionado">
+                      <option >Seleccione</option>
                       <option *ngFor="let ass of metodosAssessment">{{ass.abreviatura}}</option>
                   </select>
             </td>
-              <td *ngIf="obj.id_tipo_objetivo==2"><button type="button" class="btn btn-primary">1</button></td>
-              <td *ngIf="obj.id_tipo_objetivo==2"><button type="button" class="btn btn-primary">2</button></td>
-              <td *ngIf="obj.id_tipo_objetivo==2"><button type="button" class="btn btn-primary">3</button></td>
-              <td *ngIf="obj.id_tipo_objetivo==2"><button type="button" class="btn btn-primary">4</button></td>
-              <td *ngIf="obj.id_tipo_objetivo==2"><button type="button" class="btn btn-primary">5</button></td>
-              <td *ngIf="obj.id_tipo_objetivo==2"><button type="button" class="btn btn-primary">6</button></td>
-              <td *ngIf="obj.id_tipo_objetivo==2"><button type="button" class="btn btn-primary">7</button></td>
-              <td *ngIf="obj.id_tipo_objetivo==2"><button type="button" class="btn btn-primary">8</button></td>
-              <td *ngIf="obj.id_tipo_objetivo==2"><button type="button" class="btn btn-primary">9</button></td>
+              <td *ngIf="obj.id_tipo_objetivo==2"><button type="button" class="btn btn-primary" (click)="evaluar(obj,1)">1</button></td>
+              <td *ngIf="obj.id_tipo_objetivo==2"><button type="button" class="btn btn-primary" (click)="evaluar(obj,2)">2</button></td>
+              <td *ngIf="obj.id_tipo_objetivo==2"><button type="button" class="btn btn-primary" (click)="evaluar(obj,3)">3</button></td>
+              <td *ngIf="obj.id_tipo_objetivo==2"><button type="button" class="btn btn-primary" (click)="evaluar(obj,4)">4</button></td>
+              <td *ngIf="obj.id_tipo_objetivo==2"><button type="button" class="btn btn-primary" (click)="evaluar(obj,5)">5</button></td>
+              <td *ngIf="obj.id_tipo_objetivo==2"><button type="button" class="btn btn-primary" (click)="evaluar(obj,6)">6</button></td>
+              <td *ngIf="obj.id_tipo_objetivo==2"><button type="button" class="btn btn-primary" (click)="evaluar(obj,7)">7</button></td>
+              <td *ngIf="obj.id_tipo_objetivo==2"><button type="button" class="btn btn-primary" (click)="evaluar(obj,8)">8</button></td>
+              <td *ngIf="obj.id_tipo_objetivo==2"><button type="button" class="btn btn-primary" (click)="evaluar(obj,9)">9</button></td>
             
             </tr>
             <tr *ngFor="let obj of objetivosCompetencia" >
             <th style="text-align:center; vertical-align: middle;" *ngIf="obj.id_tipo_objetivo==3" >Ser</th>
             <td *ngIf="obj.id_tipo_objetivo==3">{{obj.desc_objetivo}}</td>
             <td *ngIf="obj.id_tipo_objetivo==3">
-                <select class="form-control" >
+                <select class="form-control" [(ngModel)]="assessmentSeleccionado" >
                     <option>Seleccione</option>
                     <option *ngFor="let ass of metodosAssessment">{{ass.abreviatura}}</option>
                 </select>
           </td>
-            <td *ngIf="obj.id_tipo_objetivo==3"><button type="button" class="btn btn-primary">1</button></td>
-            <td *ngIf="obj.id_tipo_objetivo==3"><button type="button" class="btn btn-primary">2</button></td>
-            <td *ngIf="obj.id_tipo_objetivo==3"><button type="button" class="btn btn-primary">3</button></td>
-            <td *ngIf="obj.id_tipo_objetivo==3"><button type="button" class="btn btn-primary">4</button></td>
-            <td *ngIf="obj.id_tipo_objetivo==3"><button type="button" class="btn btn-primary">5</button></td>
-            <td *ngIf="obj.id_tipo_objetivo==3"><button type="button" class="btn btn-primary">6</button></td>
-            <td *ngIf="obj.id_tipo_objetivo==3"><button type="button" class="btn btn-primary">7</button></td>
-            <td *ngIf="obj.id_tipo_objetivo==3"><button type="button" class="btn btn-primary">8</button></td>
-            <td *ngIf="obj.id_tipo_objetivo==3"><button type="button" class="btn btn-primary">9</button></td>
+            <td *ngIf="obj.id_tipo_objetivo==3"><button type="button" class="btn btn-primary" (click)="evaluar(obj,1)">1</button></td>
+            <td *ngIf="obj.id_tipo_objetivo==3"><button type="button" class="btn btn-primary" (click)="evaluar(obj,2)">2</button></td>
+            <td *ngIf="obj.id_tipo_objetivo==3"><button type="button" class="btn btn-primary" (click)="evaluar(obj,3)">3</button></td>
+            <td *ngIf="obj.id_tipo_objetivo==3"><button type="button" class="btn btn-primary" (click)="evaluar(obj,4)">4</button></td>
+            <td *ngIf="obj.id_tipo_objetivo==3"><button type="button" class="btn btn-primary" (click)="evaluar(obj,5)">5</button></td>
+            <td *ngIf="obj.id_tipo_objetivo==3"><button type="button" class="btn btn-primary" (click)="evaluar(obj,6)">6</button></td>
+            <td *ngIf="obj.id_tipo_objetivo==3"><button type="button" class="btn btn-primary" (click)="evaluar(obj,7)">7</button></td>
+            <td *ngIf="obj.id_tipo_objetivo==3"><button type="button" class="btn btn-primary" (click)="evaluar(obj,8)">8</button></td>
+            <td *ngIf="obj.id_tipo_objetivo==3"><button type="button" class="btn btn-primary" (click)="evaluar(obj,9)">9</button></td>
           </tr>
           </tbody>
         </table>
