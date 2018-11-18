@@ -37,6 +37,7 @@ import { TipoObjetivo } from './dataservice/tipo-objetivo';
 import { VariablesConfiguracion } from './dataservice/variables-configuracion';
 import { UsuarioPerfil } from './dataservice/usuario-perfil';
 import { UsuarioCurso } from './dataservice/usuario-curso';
+import { AutoevaluacionComponent } from './components/autoevaluacion/autoevaluacion.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { UsuarioCurso } from './dataservice/usuario-curso';
     ResultadosEstudianteComponent,
     ResultadosProfesorComponent,
     CardEstudianteComponent,
-    AdministradorComponent
+    AdministradorComponent,
+    AutoevaluacionComponent
   ],
   imports: [
     AppRoutingModule,

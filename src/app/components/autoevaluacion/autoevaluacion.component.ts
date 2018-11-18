@@ -14,12 +14,13 @@ import { Profesor } from 'src/app/dataservice/profesor';
 import { UsuarioPerfil } from 'src/app/dataservice/usuario-perfil';
 import { UsuarioCurso } from 'src/app/dataservice/usuario-curso';
 
+
 @Component({
-  selector: 'app-evaluacion',
-  templateUrl: './evaluacion.component.html',
-  styleUrls: ['./evaluacion.component.css']
+  selector: 'app-autoevaluacion',
+  templateUrl: './autoevaluacion.component.html',
+  styleUrls: ['./autoevaluacion.component.css']
 })
-export class EvaluacionComponent implements OnInit {
+export class AutoevaluacionComponent implements OnInit {
 
   public error = null;
 
@@ -35,47 +36,47 @@ export class EvaluacionComponent implements OnInit {
   usuarioCurso : UsuarioCurso[];
   objass: ObjetivoAssessment[];
 
-  constructor(
-    private dataService: dataService, 
-    private globals: Globals
-    ) { }
+ 
+
+  constructor( private dataService: dataService, 
+    private globals: Globals) { }
+
+    ngOnInit() {
+      this.cargarDatos();
+    }
   
-  ngOnInit() {
-    this.cargarDatos();
-  }
+    cargarDatos() : void{
+      this.estudiante = this.globals.estudiante;
+      this.id_competencia = this.globals.id_competencia;
+      this.dataService.getCompetenciaPorId(this.id_competencia).then(competencia => this.competencia = competencia);
+      this.getObjetivosPorCompetencias();
+      this.getAssessments();
+      this.getProfesor();
+      this.getUsuarioCurso();
+      this.getUsuarioPerfil();
+    }
+  
+    getObjetivosPorCompetencias() : void {
+      this.dataService.getObjetivosPorCompetencia(this.id_competencia).then(objetivosPorCompetencia => this.objetivosCompetencia = objetivosPorCompetencia);
+    }
+  
+    getAssessments(): void {
+      this.dataService.getAssessments().then(assessments => this.metodosAssessment = assessments);
+    }
+  
+    getProfesor() : void {
+      this.dataService.getProfesor().then(prof => this.profesor = prof);
+    }
+  
+    getUsuarioPerfil() : void {
+      this.dataService.getUsuarioPerfil().then(usp => this.usuarioPerfil = usp);
+    }
+  
+    getUsuarioCurso() : void {
+      this.dataService.getUsuarioCurso().then(usc => this.usuarioCurso = usc);
+    }
 
-  cargarDatos() : void{
-    this.estudiante = this.globals.estudiante;
-    this.id_competencia = this.globals.id_competencia;
-    this.dataService.getCompetenciaPorId(this.id_competencia).then(competencia => this.competencia = competencia);
-    this.getObjetivosPorCompetencias();
-    this.getAssessments();
-    this.getProfesor();
-    this.getUsuarioCurso();
-    this.getUsuarioPerfil();
-  }
-
-  getObjetivosPorCompetencias() : void {
-    this.dataService.getObjetivosPorCompetencia(this.id_competencia).then(objetivosPorCompetencia => this.objetivosCompetencia = objetivosPorCompetencia);
-  }
-
-  getAssessments(): void {
-    this.dataService.getAssessments().then(assessments => this.metodosAssessment = assessments);
-  }
-
-  getProfesor() : void {
-    this.dataService.getProfesor().then(prof => this.profesor = prof);
-  }
-
-  getUsuarioPerfil() : void {
-    this.dataService.getUsuarioPerfil().then(usp => this.usuarioPerfil = usp);
-  }
-
-  getUsuarioCurso() : void {
-    this.dataService.getUsuarioCurso().then(usc => this.usuarioCurso = usc);
-  }
-
-  evaluar(objetivo: Objetivo, calificacion: number) :  void {
+    evaluar(objetivo: Objetivo, calificacion: number) :  void {
       
       console.log(objetivo.desc_objetivo);
       console.log(calificacion);
@@ -204,9 +205,5 @@ export class EvaluacionComponent implements OnInit {
     this.dataService.crearEvaluacion(evaluacion);
     console.log('paso');
   }
-
-
-
- 
-
+  
 }
