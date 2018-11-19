@@ -63,10 +63,10 @@ export class dataService {
                 .then(response => response.json() as Objetivo[])
             }
 
-            getObjetivoAssessment(): Promise<ObjetivoAssessment[]>{
+            getObjetivoAssessment(): Promise<Array<ObjetivoAssessment>>{
                 return this.http.get('http://localhost:8000/objetivo_assessment?format=json', {headers: this.headers})
                 .toPromise()
-                .then(response => response.json() as ObjetivoAssessment[])
+                .then(response => response.json() as Array<ObjetivoAssessment>)
             }
 
             getMomentoEvaluativo(): Promise<MomentoEvaluativo[]>{

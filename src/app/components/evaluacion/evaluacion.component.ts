@@ -33,12 +33,17 @@ export class EvaluacionComponent implements OnInit {
   profesor : Profesor;
   usuarioPerfil : UsuarioPerfil[];
   usuarioCurso : UsuarioCurso[];
-  objass: ObjetivoAssessment[];
+  objass: Array<ObjetivoAssessment>;
+  ponderacion: VariablesConfiguracion;
+  mes: MomentoEvaluativo[];
+  curso: Curso;
+  evals : Evaluacion[];
 
   constructor(
     private dataService: dataService, 
-    private globals: Globals
-    ) { }
+    private globals: Globals,
+    ) { 
+    }
   
   ngOnInit() {
     this.cargarDatos();
@@ -53,6 +58,11 @@ export class EvaluacionComponent implements OnInit {
     this.getProfesor();
     this.getUsuarioCurso();
     this.getUsuarioPerfil();
+    this.getObjetivoAssessment();
+    this.getPonderacion();
+    this.getMomentoEvaluativo();
+    this.getCurso();
+    this.getEvaluacion();
   }
 
   getObjetivosPorCompetencias() : void {
@@ -75,6 +85,26 @@ export class EvaluacionComponent implements OnInit {
     this.dataService.getUsuarioCurso().then(usc => this.usuarioCurso = usc);
   }
 
+  getObjetivoAssessment() : void {
+    this.dataService.getObjetivoAssessment().then(obj => this.objass = obj);
+  }
+
+  getPonderacion() : void {
+    this.dataService.getPonderacion().then(pond => this.ponderacion=pond);
+  }
+
+  getMomentoEvaluativo() : void {
+    this.dataService.getMomentoEvaluativo().then(me => this.mes = me);
+  }
+
+  getCurso() : void {
+    this.dataService.getCursoById(1).then(cur=> this.curso = cur);
+  }
+
+  getEvaluacion() : void {
+    this.dataService.getEvaluacion().then(ev => this.evals = ev);
+  }
+
   evaluar(objetivo: Objetivo, calificacion: number) :  void {
       
       console.log(objetivo.desc_objetivo);
@@ -83,13 +113,9 @@ export class EvaluacionComponent implements OnInit {
       
       var assessment: Assessment;
       for(var item of this.metodosAssessment){
-  
         if( item.abreviatura === this.assessmentSeleccionado){
             assessment = item;
-            console.log("entro");
             console.log(assessment.abreviatura);
-        }else{
-          console.log("no entro");
         }
       }
       console.log(assessment.abreviatura);
@@ -99,21 +125,18 @@ export class EvaluacionComponent implements OnInit {
 
   crearObjetivoAssessment(id_objetivo: number, id_assessment:number, calificacion: number) : void {
 
-    console.log('paso');
+    console.log('Entró al objetivo por assessment');
     console.log(id_objetivo);
     console.log(id_assessment);
-
-    this.dataService.getObjetivoAssessment().then(obj => this.objass = obj);
-
     
     var objs: ObjetivoAssessment;
     var id_obj_ass : number;
     
-    if(this.objass.length == 0){
-      console.log("entró en el if")
-      id_obj_ass = 1;
+    if(this.objass.length === 0){
+      console.log("entró en el if");
+      id_obj_ass = 1; 
     }else{
-      console.log("ya existe algo")
+      console.log("ya existe algo");
       objs = this.objass.pop();
       id_obj_ass = objs.id_obj_assess +1;
       console.log(id_obj_ass);
@@ -126,70 +149,56 @@ export class EvaluacionComponent implements OnInit {
     };
     
     this.dataService.crearObjetivoAssessment(objetivoAssessment);
-    console.log('paso');
+    console.log('Pasó el objetivo por assessment');
     this.crearMomentoEvaluativo(id_obj_ass, calificacion);
 
   }
 
   crearMomentoEvaluativo(id_obj_assess: number, calificacion:number) : void {
-    console.log('paso');
-    var ponderacion: VariablesConfiguracion;
-    this.dataService.getPonderacion().then(pond => ponderacion=pond);
-
-    var mes: MomentoEvaluativo[];
-    this.dataService.getMomentoEvaluativo().then(me => mes = me);
-
-    var curso: Curso;
-    this.dataService.getCursoById(1).then(cur=> curso = cur);
+    console.log('Entró al momento evaluativo');
 
     var id_momento_evaluativo: number;
-
-    if(mes == null || mes.length== 0){
+    console.log(this.mes.length);
+    if(this.mes.length===0){
       id_momento_evaluativo = 1;
     }else{
-      id_momento_evaluativo = mes.pop().id_momento_evaluativo+1;
+      id_momento_evaluativo = this.mes.pop().id_momento_evaluativo+1;
     }
 
     let momentoEvaluativo : MomentoEvaluativo = {
       id_momento_evaluativo: id_momento_evaluativo,
-      ponderacion: ponderacion.valor,
-      id_curso: curso.id_curso,
+      ponderacion: this.ponderacion.valor,
+      id_curso: this.curso.id_curso,
       id_obj_assess: id_obj_assess
     };
 
     this.dataService.crearMomentoEvaluativo(momentoEvaluativo);
-    console.log('paso');
+    console.log('Pasó el momento evaluativo');
     this.crearEvaluacion(calificacion,id_momento_evaluativo);
 
   }
 
   crearEvaluacion(calificacion : number, id_momento_evaluativo: number) : void {
-    console.log('paso');
+    console.log('Entró a la evaluación');
     var id_evaluacion : number;
     var id_usuario_curso : number;
     var id_usuario_perfil : number;
 
-    var evals : Evaluacion[];
-    this.dataService.getEvaluacion().then(ev => evals = ev);
-
-    var curso: Curso;
-    this.dataService.getCursoById(1).then(cur=> curso = cur);
-
-    if(evals == null || evals.length == 0){
-      id_evaluacion = 0;
+    if(this.evals.length === 0){
+      id_evaluacion = 1;
     }else{
-      id_evaluacion = evals.pop().id_evaluacion+1;
+      id_evaluacion = this.evals.pop().id_evaluacion+1;
     }
 
     for (let item of this.usuarioCurso){
-      if(item.id_usuario == this.estudiante.id_usuario && item.id_curso == curso.id_curso){
+      if(item.id_usuario === this.estudiante.id_usuario && item.id_curso === this.curso.id_curso){
         id_usuario_curso = item.id_usuario_curso;
       }
     }
 
     for (let item of this.usuarioPerfil){
-      if(item.id_usuario == this.profesor.id_usuario){
-        id_usuario_perfil == item.id_usuario_perfil;
+      if(item.id_usuario === this.profesor.id_usuario){
+        id_usuario_perfil = item.id_usuario_perfil;
       }
     }
 
@@ -202,11 +211,7 @@ export class EvaluacionComponent implements OnInit {
     }
 
     this.dataService.crearEvaluacion(evaluacion);
-    console.log('paso');
+    console.log('Pasó la evaluación');
   }
-
-
-
- 
-
+  
 }
