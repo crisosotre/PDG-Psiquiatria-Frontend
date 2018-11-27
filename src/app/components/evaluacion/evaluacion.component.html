@@ -17,8 +17,11 @@
 
   <div class="container-fluid">
 
-      <div class="alert alert-danger" [hidden]="!error">
+    <div class="alert alert-danger" [hidden]="!error">
           {{error}}
+     </div>
+     <div class="alert alert-success" [hidden]="!mensaje">
+      {{mensaje}}
      </div>
 
     <div class="table-responsive">

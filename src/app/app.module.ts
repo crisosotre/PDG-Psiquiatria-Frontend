@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { EvaluacionProfesorComponent } from './components/evaluacion-profesor/evaluacion-profesor.component';
 import { dataService } from './dataservice/data.service';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { Profesor } from './dataservice/profesor';
 import { Estudiante } from './dataservice/estudiante';
 import { Competencia } from './dataservice/competencia';
@@ -62,6 +63,7 @@ import { AutoevaluacionComponent } from './components/autoevaluacion/autoevaluac
     NgbModule,
     FormsModule,
     HttpModule,
+    HttpClientModule
   ],
   providers: [
     dataService,  

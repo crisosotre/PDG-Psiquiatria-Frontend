@@ -22,6 +22,7 @@ import { UsuarioCurso } from 'src/app/dataservice/usuario-curso';
 export class EvaluacionComponent implements OnInit {
 
   public error = null;
+  public mensaje = null;
 
   estudiante : Estudiante;
   competencia : Competencia;
@@ -110,17 +111,23 @@ export class EvaluacionComponent implements OnInit {
       console.log(objetivo.desc_objetivo);
       console.log(calificacion);
       console.log(this.assessmentSeleccionado);
-      
-      var assessment: Assessment;
-      for(var item of this.metodosAssessment){
-        if( item.abreviatura === this.assessmentSeleccionado){
-            assessment = item;
-            console.log(assessment.abreviatura);
+
+      if(this.assessmentSeleccionado === undefined || this.assessmentSeleccionado === "Seleccione"){
+
+        this.error = "Por favor seleccione un método de assessment"
+
+      }else{
+
+        var assessment: Assessment;
+        for(var item of this.metodosAssessment){
+          if( item.abreviatura === this.assessmentSeleccionado){
+              assessment = item;
+              console.log(assessment.abreviatura);
+          }
         }
+        console.log(assessment.abreviatura);
+        this.crearObjetivoAssessment(objetivo.id_objetivo, assessment.id_assessment, calificacion);
       }
-      console.log(assessment.abreviatura);
-      this.crearObjetivoAssessment(objetivo.id_objetivo, assessment.id_assessment, calificacion);
-      
   }
 
   crearObjetivoAssessment(id_objetivo: number, id_assessment:number, calificacion: number) : void {
@@ -148,9 +155,12 @@ export class EvaluacionComponent implements OnInit {
       id_assessment: id_assessment
     };
     
-    this.dataService.crearObjetivoAssessment(objetivoAssessment);
+    this.dataService.crearObjetivoAssessment(objetivoAssessment).subscribe(
+    x=> console.log("Se creó el objetivo por assessment correctamente"),
+    e=> this.error = "se produjo un error inesperado",
+    ()=> this.crearMomentoEvaluativo(id_obj_ass, calificacion));
     console.log('Pasó el objetivo por assessment');
-    this.crearMomentoEvaluativo(id_obj_ass, calificacion);
+    
 
   }
 
@@ -172,9 +182,12 @@ export class EvaluacionComponent implements OnInit {
       id_obj_assess: id_obj_assess
     };
 
-    this.dataService.crearMomentoEvaluativo(momentoEvaluativo);
+    this.dataService.crearMomentoEvaluativo(momentoEvaluativo).subscribe( 
+    x=> console.log("Se creó el momento evaluativo correctamente"),
+    e=> this.error = "se produjo un error inesperado",
+    ()=>this.crearEvaluacion(calificacion,id_momento_evaluativo));
     console.log('Pasó el momento evaluativo');
-    this.crearEvaluacion(calificacion,id_momento_evaluativo);
+    
 
   }
 
@@ -210,7 +223,10 @@ export class EvaluacionComponent implements OnInit {
       id_usuario_perfil : id_usuario_perfil
     }
 
-    this.dataService.crearEvaluacion(evaluacion);
+    this.dataService.crearEvaluacion(evaluacion).subscribe(
+    x=> this.mensaje= "Se realizó la evaluación con éxito",
+    e=> this.error = "se produjo un error inesperado",
+    ()=> this.cargarDatos());
     console.log('Pasó la evaluación');
   }
   

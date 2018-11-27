@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Profesor } from './profesor'
 import { Estudiante } from './estudiante';
 import { Competencia } from './competencia';
@@ -21,7 +23,7 @@ import { UsuarioCurso } from './usuario-curso';
 @Injectable()
 export class dataService {
 
-    constructor(private http: Http ){}
+    constructor(private http: Http , private http2: HttpClient){}
 
         private headers = new Headers({'Content-Type': 'application/json'});
 
@@ -114,22 +116,19 @@ export class dataService {
 
             //Métodos POST
 
-            crearObjetivoAssessment(objetivoAssessment: ObjetivoAssessment): Promise<ObjetivoAssessment>{
-                return this.http.post('http://localhost:8000/objetivo_assessment',objetivoAssessment, {headers: this.headers})
-                .toPromise()
-                .then(response => response.json() as ObjetivoAssessment )
+            crearObjetivoAssessment(objetivoAssessment: ObjetivoAssessment): Observable<ObjetivoAssessment>{
+                return this.http2.post<ObjetivoAssessment>('http://localhost:8000/objetivo_assessment',objetivoAssessment)
+                
             }
 
-            crearMomentoEvaluativo(momentoEvaluativo: MomentoEvaluativo): Promise<MomentoEvaluativo>{
-                return this.http.post('http://localhost:8000/momento_evaluativo',momentoEvaluativo, {headers: this.headers})
-                .toPromise()
-                .then(response => response.json() as MomentoEvaluativo)
+            crearMomentoEvaluativo(momentoEvaluativo: MomentoEvaluativo): Observable<MomentoEvaluativo>{
+                return this.http2.post<MomentoEvaluativo>('http://localhost:8000/momento_evaluativo',momentoEvaluativo)
+                
             }
 
-            crearEvaluacion(evaluacion: Evaluacion): Promise<Evaluacion>{
-                return this.http.post('http://localhost:8000/evaluacion',evaluacion, {headers: this.headers})
-                .toPromise()
-                .then(response => response.json() as Evaluacion)
+            crearEvaluacion(evaluacion: Evaluacion): Observable<Evaluacion>{
+                return this.http2.post<Evaluacion>('http://localhost:8000/evaluacion',evaluacion)
+            
             }
 }
 
