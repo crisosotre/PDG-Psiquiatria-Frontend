@@ -31,7 +31,7 @@ export class AutoevaluacionComponent implements OnInit {
   objetivosCompetencia : Objetivo[];
   metodosAssessment: Assessment[];
   assessmentEstudiante: Assessment[];
-  assessmentSeleccionado : string;
+  assessmentSeleccionado : string = "Seleccione";
   profesor : Profesor;
   usuarioPerfil : UsuarioPerfil[];
   usuarioCurso : UsuarioCurso[];
@@ -106,13 +106,20 @@ export class AutoevaluacionComponent implements OnInit {
       this.dataService.getEvaluacion().then(ev => this.evals = ev);
     }
 
+    selectChangeHandler(event: any){
+      this.assessmentSeleccionado = event.target.value;
+    }
+
     evaluar(objetivo: Objetivo, calificacion: number) :  void {
+
+      this.error = null;
+      this.mensaje = null;
       
       console.log(objetivo.desc_objetivo);
       console.log(calificacion);
       console.log(this.assessmentSeleccionado);
       
-      if(this.assessmentSeleccionado === undefined || this.assessmentSeleccionado ==="Seleccione"){
+      if(this.assessmentSeleccionado === undefined || this.assessmentSeleccionado ==="Seleccione" || this.assessmentSeleccionado === ""){
 
         this.error = "Por favor seleccione un método de assessment";
 
@@ -132,6 +139,9 @@ export class AutoevaluacionComponent implements OnInit {
   }
 
   crearObjetivoAssessment(id_objetivo: number, id_assessment:number, calificacion: number) : void {
+
+    this.error = null;
+    this.mensaje = null;
 
     console.log('Entró al objetivo por assessment');
     console.log(id_objetivo);
@@ -228,6 +238,7 @@ export class AutoevaluacionComponent implements OnInit {
     e=> this.error ="Se produjo un error inesperado",
     ()=> this.cargarDatos());
     console.log('Pasó la evaluación');
+    this.assessmentSeleccionado = "Seleccione";
   }
   
 }

@@ -17,6 +17,11 @@
 
 <div class="container-fluid">
 
+    <h3>Métodos de assessment</h3>
+    <div *ngFor="let ass of metodosAssessment">
+    <p><strong>{{ass.abreviatura}} :</strong> {{ass.nombre}}. </p>
+    </div>
+
     <div class="alert alert-danger" [hidden]="!error">
       {{error}}
    </div>
@@ -48,9 +53,9 @@
               </div> 
             </td>
             <td *ngIf="obj.id_tipo_objetivo == 1" >
-                <select [(ngModel)]="assessmentSeleccionado" class="form-control">
-                    <option>Seleccione</option>
-                    <option *ngFor="let ass of metodosAssessment">{{ass.abreviatura}}</option>
+                <select (change)="selectChangeHandler($event)" class="form-control">
+                    <option value="Seleccione">Seleccione</option>
+                    <option *ngFor="let ass of metodosAssessment" value="{{ass.abreviatura}}">{{ass.abreviatura}}</option>
                 </select>
           </td>
             <td *ngIf="obj.id_tipo_objetivo == 1"><button type="button" class="btn btn-primary" (click)="evaluar(obj,1)">1</button></td>
@@ -68,9 +73,9 @@
             <th style="text-align:center; vertical-align: middle;">Hacer</th>
             <td *ngIf="obj.id_tipo_objetivo==2">{{obj.desc_objetivo}}</td>
             <td *ngIf="obj.id_tipo_objetivo==2">
-                <select [(ngModel)]="assessmentSeleccionado" class="form-control">
-                    <option >Seleccione</option>
-                    <option *ngFor="let ass of metodosAssessment">{{ass.abreviatura}}</option>
+                <select (change)="selectChangeHandler($event)" class="form-control">
+                    <option value="Seleccione">Seleccione</option>
+                    <option *ngFor="let ass of metodosAssessment" value="{{ass.abreviatura}}">{{ass.abreviatura}}</option>
                 </select>
           </td>
             <td *ngIf="obj.id_tipo_objetivo==2"><button type="button" class="btn btn-primary" (click)="evaluar(obj,1)">1</button></td>
@@ -88,11 +93,11 @@
           <th style="text-align:center; vertical-align: middle;" *ngIf="obj.id_tipo_objetivo==3">Ser</th>
           <td *ngIf="obj.id_tipo_objetivo==3">{{obj.desc_objetivo}}</td>
           <td *ngIf="obj.id_tipo_objetivo==3">
-              <select class="form-control" [(ngModel)]="assessmentSeleccionado" >
-                  <option>Seleccione</option>
-                  <option *ngFor="let ass of metodosAssessment">{{ass.abreviatura}}</option>
+              <select class="form-control" (change)="selectChangeHandler($event)">
+                  <option value="Seleccione">Seleccione</option>
+                  <option *ngFor="let ass of metodosAssessment" value="{{ass.abreviatura}}">{{ass.abreviatura}}</option>
               </select>
-        </td>
+          </td>
           <td *ngIf="obj.id_tipo_objetivo==3"><button type="button" class="btn btn-primary" (click)="evaluar(obj,1)">1</button></td>
           <td *ngIf="obj.id_tipo_objetivo==3"><button type="button" class="btn btn-primary" (click)="evaluar(obj,2)">2</button></td>
           <td *ngIf="obj.id_tipo_objetivo==3"><button type="button" class="btn btn-primary" (click)="evaluar(obj,3)">3</button></td>
