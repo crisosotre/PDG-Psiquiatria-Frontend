@@ -67,10 +67,9 @@
             <td *ngIf="obj.id_tipo_objetivo == 1"><button type="button" class="btn btn-primary" (click)="evaluar(obj,7)">7</button></td>
             <td *ngIf="obj.id_tipo_objetivo == 1"><button type="button" class="btn btn-primary" (click)="evaluar(obj,8)">8</button></td>
             <td *ngIf="obj.id_tipo_objetivo == 1"><button type="button" class="btn btn-primary" (click)="evaluar(obj,9)">9</button></td>
-          
           </tr>
-          <tr *ngFor="let obj of objetivosCompetencia">
-            <th style="text-align:center; vertical-align: middle;">Hacer</th>
+          <tr *ngFor="let obj of objetivosCompetencia"> 
+            <th style="text-align:center; vertical-align: middle;" *ngIf="obj.id_tipo_objetivo==2">Hacer</th>
             <td *ngIf="obj.id_tipo_objetivo==2">{{obj.desc_objetivo}}</td>
             <td *ngIf="obj.id_tipo_objetivo==2">
                 <select (change)="selectChangeHandler($event)" class="form-control">
@@ -87,7 +86,6 @@
             <td *ngIf="obj.id_tipo_objetivo==2"><button type="button" class="btn btn-primary" (click)="evaluar(obj,7)">7</button></td>
             <td *ngIf="obj.id_tipo_objetivo==2"><button type="button" class="btn btn-primary" (click)="evaluar(obj,8)">8</button></td>
             <td *ngIf="obj.id_tipo_objetivo==2"><button type="button" class="btn btn-primary" (click)="evaluar(obj,9)">9</button></td>
-          
           </tr>
           <tr *ngFor="let obj of objetivosCompetencia">
           <th style="text-align:center; vertical-align: middle;" *ngIf="obj.id_tipo_objetivo==3">Ser</th>
