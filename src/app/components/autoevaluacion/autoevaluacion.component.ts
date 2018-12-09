@@ -13,6 +13,7 @@ import { Curso } from 'src/app/dataservice/curso';
 import { Profesor } from 'src/app/dataservice/profesor';
 import { UsuarioPerfil } from 'src/app/dataservice/usuario-perfil';
 import { UsuarioCurso } from 'src/app/dataservice/usuario-curso';
+import { SnotifyService } from 'node_modules/ng-snotify';
 
 
 @Component({
@@ -21,9 +22,6 @@ import { UsuarioCurso } from 'src/app/dataservice/usuario-curso';
   styleUrls: ['./autoevaluacion.component.css']
 })
 export class AutoevaluacionComponent implements OnInit {
-
-  public error = null;
-  public mensaje = null;
 
   estudiante : Estudiante;
   competencia : Competencia;
@@ -43,8 +41,11 @@ export class AutoevaluacionComponent implements OnInit {
 
  
 
-  constructor( private dataService: dataService, 
-    private globals: Globals) { }
+  constructor( 
+    private dataService: dataService, 
+    private globals: Globals,
+    private notify:SnotifyService, 
+    private Notify:SnotifyService) { }
 
     ngOnInit() {
       this.cargarDatos();
@@ -112,8 +113,6 @@ export class AutoevaluacionComponent implements OnInit {
 
     evaluar(objetivo: Objetivo, calificacion: number) :  void {
 
-      this.error = null;
-      this.mensaje = null;
       
       
       console.log(objetivo.desc_objetivo);
@@ -122,7 +121,7 @@ export class AutoevaluacionComponent implements OnInit {
       
       if(this.assessmentSeleccionado === undefined || this.assessmentSeleccionado ==="Seleccione" || this.assessmentSeleccionado === ""){
 
-        this.error = "Por favor seleccione un método de assessment";
+        this.Notify.error("Por favor seleccione un método de assessment","Error", {timeout:5000})
 
       }else{
 
@@ -141,8 +140,7 @@ export class AutoevaluacionComponent implements OnInit {
 
   crearObjetivoAssessment(id_objetivo: number, id_assessment:number, calificacion: number) : void {
 
-    this.error = null;
-    this.mensaje = null;
+    
 
     console.log('Entró al objetivo por assessment');
     console.log(id_objetivo);
@@ -169,7 +167,7 @@ export class AutoevaluacionComponent implements OnInit {
     
     this.dataService.crearObjetivoAssessment(objetivoAssessment).subscribe(
     x=> console.log("Se creó el objetivo por assessment correctamente"),
-    e=> this.error = "Se produjo un error inesperado",
+    e=> this.notify.error("Se produjo un error inesperado","Error",{timeout: 5000}),
     ()=> this.crearMomentoEvaluativo(id_obj_ass, calificacion));
     console.log('Pasó el objetivo por assessment');
 
@@ -195,7 +193,7 @@ export class AutoevaluacionComponent implements OnInit {
 
     this.dataService.crearMomentoEvaluativo(momentoEvaluativo).subscribe( 
     x=> console.log("Se creó el momento evaluativo correctamente"),
-    e=> this.error = "Se produjo un error inesperado",
+    e=> this.notify.error("Se produjo un error inesperado","Error",{timeout: 5000}),
     ()=>this.crearEvaluacion(calificacion,id_momento_evaluativo));
     console.log('Pasó el momento evaluativo');
     
@@ -235,8 +233,8 @@ export class AutoevaluacionComponent implements OnInit {
     }
 
     this.dataService.crearEvaluacion(evaluacion).subscribe(
-    x=> this.mensaje = "Se realizó la autoevaluación con éxito",
-    e=> this.error ="Se produjo un error inesperado",
+    x=> this.Notify.success("Se ha realizado la autoevaluación con éxito","Genial",{timeout: 5000}),
+    e=> this.notify.error("Se produjo un error inesperado","Error",{timeout: 5000}),
     ()=> this.cargarDatos());
     console.log('Pasó la evaluación');
     this.assessmentSeleccionado = "Seleccione";

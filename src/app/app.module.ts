@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './/app-routing.module';
@@ -40,6 +40,7 @@ import { UsuarioPerfil } from './dataservice/usuario-perfil';
 import { UsuarioCurso } from './dataservice/usuario-curso';
 import { AutoevaluacionComponent } from './components/autoevaluacion/autoevaluacion.component';
 import { ChartsModule } from 'ng2-charts';
+import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
 
 @NgModule({
   declarations: [
@@ -65,8 +66,10 @@ import { ChartsModule } from 'ng2-charts';
     FormsModule,
     HttpModule,
     HttpClientModule,
+    SnotifyModule,
     ChartsModule
   ],
+  schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
     dataService,  
     Profesor, 
@@ -87,7 +90,9 @@ import { ChartsModule } from 'ng2-charts';
     TipoObjetivo,
     VariablesConfiguracion,
     UsuarioPerfil,
-    UsuarioCurso
+    UsuarioCurso, 
+    { provide: 'SnotifyToastConfig', useValue: ToastDefaults},
+    SnotifyService
   ],
   bootstrap: [AppComponent]
 })

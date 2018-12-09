@@ -13,6 +13,7 @@ import { Curso } from 'src/app/dataservice/curso';
 import { Profesor } from 'src/app/dataservice/profesor';
 import { UsuarioPerfil } from 'src/app/dataservice/usuario-perfil';
 import { UsuarioCurso } from 'src/app/dataservice/usuario-curso';
+import { SnotifyService } from 'node_modules/ng-snotify';
 
 @Component({
   selector: 'app-evaluacion',
@@ -20,9 +21,6 @@ import { UsuarioCurso } from 'src/app/dataservice/usuario-curso';
   styleUrls: ['./evaluacion.component.css']
 })
 export class EvaluacionComponent implements OnInit {
-
-  public error = null;
-  public mensaje = null;
 
   estudiante : Estudiante;
   competencia : Competencia;
@@ -43,6 +41,8 @@ export class EvaluacionComponent implements OnInit {
   constructor(
     private dataService: dataService, 
     private globals: Globals,
+    private notify:SnotifyService, 
+    private Notify:SnotifyService
     ) { 
     }
   
@@ -111,18 +111,15 @@ export class EvaluacionComponent implements OnInit {
   }
 
   evaluar(objetivo: Objetivo, calificacion: number) :  void {
-
-    this.error = null;
-    this.mensaje = null;
-      
+     
       console.log(objetivo.desc_objetivo);
       console.log(calificacion);
       console.log(this.assessmentSeleccionado);
 
       if(this.assessmentSeleccionado === undefined || this.assessmentSeleccionado === "Seleccione" || this.assessmentSeleccionado === ""){
-
-        this.error = "Por favor seleccione un método de assessment"
-
+        
+        this.Notify.error("Por favor seleccione un método de assessment","Error", {timeout:5000})
+    
       }else{
 
         var assessment: Assessment;
@@ -164,7 +161,7 @@ export class EvaluacionComponent implements OnInit {
     
     this.dataService.crearObjetivoAssessment(objetivoAssessment).subscribe(
     x=> console.log("Se creó el objetivo por assessment correctamente"),
-    e=> this.error = "se produjo un error inesperado",
+    e=> this.notify.error("Se produjo un error inesperado","Error",{timeout: 5000}) ,
     ()=> this.crearMomentoEvaluativo(id_obj_ass, calificacion));
     console.log('Pasó el objetivo por assessment');
     
@@ -191,7 +188,7 @@ export class EvaluacionComponent implements OnInit {
 
     this.dataService.crearMomentoEvaluativo(momentoEvaluativo).subscribe( 
     x=> console.log("Se creó el momento evaluativo correctamente"),
-    e=> this.error = "se produjo un error inesperado",
+    e=> this.notify.error("Se produjo un error inesperado","Error",{timeout: 5000}),
     ()=>this.crearEvaluacion(calificacion,id_momento_evaluativo));
     console.log('Pasó el momento evaluativo');
     
@@ -231,8 +228,8 @@ export class EvaluacionComponent implements OnInit {
     }
 
     this.dataService.crearEvaluacion(evaluacion).subscribe(
-    x=> this.mensaje= "Se realizó la evaluación con éxito",
-    e=> this.error = "se produjo un error inesperado",
+    x=> this.Notify.success("Se ha realizado la evaluación con éxito","Genial",{timeout: 5000}),
+    e=> this.notify.error("se produjo un error inesperado","Error",{timeout: 5000}),
     ()=> this.cargarDatos());
     console.log('Pasó la evaluación');
     this.assessmentSeleccionado = "Seleccione";
