@@ -1,3 +1,149 @@
-<p>
-  resultados-profesor works!
-</p>
+<div class="jumbotron jumbotron-fluid ajustarMargen">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-5">
+        <img src="assets/img/cerebrito.png" class="img-fluid float-right" alt="Responsive image" height="50%" width="50%">
+      </div>
+      <div class="col-sm-7">
+        <br />
+        <br />
+        <br />
+        <h1 class="display-4">Psycho</h1>
+        <p class="lead">Usted se encuentra en el modulo de resultados.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+        <form class="form-inline">
+          <input class="form-control mr-sm-2 buscar" type="search" placeholder="Buscar un curso para conocer sus resultados" aria-label="Search">
+          <button class="btn btn-outline-primary my-2 my-sm-0 botonBuscar" type="submit">Buscar curso</button>
+        </form>
+
+        <br/>
+
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">General</a>
+            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Búsqueda</a>
+            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Estadísticas</a>
+          </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+   
+            <br/>
+            <h1 class="display-4" style="text-align: center;">Psiquiatría de enlace</h1>
+            <br/>
+
+            <div class="row">
+              <div class="col-sm-4">
+                  <h4 class="display-4" style="text-align: center;">Objetivos</h4>
+                  <div style="display: block">
+                      <canvas baseChart
+                                  [data]="doughnutChartData"
+                                  [labels]="doughnutChartLabels"
+                                  [chartType]="doughnutChartType"
+                                  [options]="options"
+                                  (chartHover)="chartHovered($event)"
+                                  (chartClick)="chartClicked($event)"
+                                  ></canvas>
+                    </div>
+              </div>
+              <div class="col-sm-4">
+                  <h1 class="display-4" style="text-align: center;">Competencias</h1>
+                  <h1 class="display-2" style="text-align: center; color: #7B1FA2;">7</h1>
+              </div>
+              <div class="col-sm-4">
+                  <h1 class="display-4" style="text-align: center;">Estudiantes</h1>
+                  <h1 class="display-2" style="text-align: center; color: #7B1FA2;">3</h1>
+              </div>
+            </div>
+            <br/>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="table-dark">
+                      <tr align="center" valign="center">
+                        <th>Evalucion</th>
+                        <th>Estudiante</th>
+                        <th>Competencia</th>
+                        <th>Objetivo</th>
+                        <th>Assessment</th>
+                        <th>Calificación</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr align="center">
+                        <td>1</td>
+                        <td>cristian</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>HCP</td>
+                        <td>3</td>
+                        <td><button type="button" class="btn btn-outline-primary">Editar</button></td>
+                        <td><button type="button" class="btn btn-outline-danger">Eliminar</button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>        
+          </div>
+          <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+            <br/>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2 buscarEstudiante" type="search" placeholder="Ingresar código del estudiante" aria-label="Search">
+                <button class="btn btn-outline-primary my-2 my-sm-0 botonBuscar" type="submit">Buscar estudiante</button>
+              </form>
+              <br/>
+              <hr>
+              <br/>
+            <div class="row">
+              <div class="col-sm-4">
+                  <img src="assets/img/foto2.jpg" class="img-fluid float-right rounded-circle" alt="Responsive image" height="90%" width="90%" >                                        
+              </div>
+              <div class="col-sm-8">
+                  <h1 class="display-4">Carolina Corradini Marmolejo</h1>
+                  <h2>Calificación final: 3.5</h2>
+                  <h1><small class="text-muted">Competencias evaluadas: <span class="badge badge-primary badge-pill">3</span></small></h1>
+                  <div class="row">
+                  <div class="col-sm-4 centrarDivImg">
+                      <img src="assets/img/purpleCircle.png" class="img-fluid rounded-circle" alt="Responsive image" >
+                      <div class="centrarDivH1">
+                      <h2 style="text-align: center; color: rgb(255, 255, 255);"><small >Total evaluaciones</small></h2>
+                      <h2 style="text-align: center; color: rgb(255, 255, 255);"><small>3</small></h2>
+                    </div>
+                  </div>
+                  <div class="col-sm-4 centrarDivImg">
+                      <img src="assets/img/greenCircle.png" class="img-fluid rounded-circle" alt="Responsive image" >
+                      <div class="centrarDivH1">
+                      <h2 style="text-align: center; color: rgb(255, 255, 255);"><small >Evaluaciones ganadas</small></h2>
+                      <h2 style="text-align: center; color: rgb(255, 255, 255);"><small>3</small></h2>
+                    </div>
+                    </div>
+                  <div class="col-sm-4 centrarDivImg">
+                      <img src="assets/img/redCircle.png" class="img-fluid rounded-circle" alt="Responsive image" >
+                      <div class="centrarDivH1">
+                      <h2 style="text-align: center; color: rgb(255, 255, 255);"><small >Evaluaciones perdidas</small></h2>
+                      <h2 style="text-align: center; color: rgb(255, 255, 255);"><small>3</small></h2>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <hr>
+                <div>
+                  
+                </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+
+          </div>
+        </div>
+      
+</div>
+
+<br/>

@@ -39,6 +39,7 @@ import { VariablesConfiguracion } from './dataservice/variables-configuracion';
 import { UsuarioPerfil } from './dataservice/usuario-perfil';
 import { UsuarioCurso } from './dataservice/usuario-curso';
 import { AutoevaluacionComponent } from './components/autoevaluacion/autoevaluacion.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { AutoevaluacionComponent } from './components/autoevaluacion/autoevaluac
     NgbModule,
     FormsModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    ChartsModule
   ],
   providers: [
     dataService,  

@@ -115,6 +115,7 @@ export class AutoevaluacionComponent implements OnInit {
       this.error = null;
       this.mensaje = null;
       
+      
       console.log(objetivo.desc_objetivo);
       console.log(calificacion);
       console.log(this.assessmentSeleccionado);
