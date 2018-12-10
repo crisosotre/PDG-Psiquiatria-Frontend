@@ -14,3 +14,85 @@
     </div>
   </div>
 </div>
+
+<div class="container">
+
+  <br/>
+
+  <div class="row">
+      <div class="col-sm-4">
+        <img src="assets/img/foto2.jpg" class="img-fluid float-right rounded-circle" alt="Responsive image" height="90%"
+          width="90%">
+      </div>
+      <div class="col-sm-8">
+        <h1 class="display-4">Carolina Corradini Marmolejo</h1>
+        <h2>Calificación final: 3.5</h2>
+        <h1><small class="text-muted">Competencias evaluadas: <span class="badge badge-primary badge-pill">3</span></small></h1>
+        <div class="row">
+          <div class="col-sm-4 centrarDivImg">
+            <img src="assets/img/purpleCircle.png" class="img-fluid rounded-circle" alt="Responsive image">
+            <div class="centrarDivH1">
+              <h2 style="text-align: center; color: rgb(255, 255, 255);"><small>Total evaluaciones</small></h2>
+              <h2 style="text-align: center; color: rgb(255, 255, 255);"><small>3</small></h2>
+            </div>
+          </div>
+          <div class="col-sm-4 centrarDivImg">
+            <img src="assets/img/greenCircle.png" class="img-fluid rounded-circle" alt="Responsive image">
+            <div class="centrarDivH1">
+              <h2 style="text-align: center; color: rgb(255, 255, 255);"><small>Evaluaciones ganadas</small></h2>
+              <h2 style="text-align: center; color: rgb(255, 255, 255);"><small>3</small></h2>
+            </div>
+          </div>
+          <div class="col-sm-4 centrarDivImg">
+            <img src="assets/img/redCircle.png" class="img-fluid rounded-circle" alt="Responsive image">
+            <div class="centrarDivH1">
+              <h2 style="text-align: center; color: rgb(255, 255, 255);"><small>Evaluaciones perdidas</small></h2>
+              <h2 style="text-align: center; color: rgb(255, 255, 255);"><small>3</small></h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+        <br />
+        <hr>
+        <br />
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead class="table-dark">
+              <tr align="center" valign="center">
+                <th>Evaluación</th>
+                <th>Competencia</th>
+                <th>Objetivo</th>
+                <th>Tipo de objetivo</th>
+                <th>Assessment</th>
+                <th>Calificación</th>
+                <th>Fecha</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr align="center">
+                <td data-toggle="tooltip" data-placement="top" title="Tooltip on top">1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>Saber</td>
+                <td>HCP</td>
+                <td>3</td>
+                <td>01/12/2018</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <br />
+        <hr>
+        <br />
+      </div>
+      <div class="col-sm-12">
+          <h4 class="display-4" style="text-align: center;">Grafica de rendimiento</h4>
+          <div style="display: block">
+            <canvas baseChart [data]="lineChartData" [labels]="lineChartLabels" [chartType]="lineChartType" (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+          </div>
+        </div>
+
+</div>
