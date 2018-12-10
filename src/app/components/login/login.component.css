@@ -1,6 +1,11 @@
 .fondo {
     background-image: linear-gradient(to right, #ff5722, #ff9800);
-    margin-top: 150px !important;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.contenedor {
+    margin-top: 8% !important;
 }
 
 .register-left {
@@ -72,7 +77,7 @@ padding: 30px;
 }
 
    .register-right .btn-primary:hover {
-       background: #ff5722;
+       background: #7B1FA2;
    }
    @keyframes mover{
        0%{transform: translateY(0);}

@@ -10,9 +10,12 @@ import { ResultadosProfesorComponent } from './components/resultados-profesor/re
 
 
 const appRoutes:Routes = [
-
 {
-  path:'',
+    path:'',
+    component:LoginComponent,
+},
+{
+  path:'evaluacion_profesor',
   component:EvaluacionProfesorComponent,
 
 },
@@ -27,10 +30,6 @@ const appRoutes:Routes = [
 {
   path:'autoevaluacion',
   component:AutoevaluacionComponent,
-},
-{
-  path:'login',
-  component:LoginComponent,
 },
 {
   path:'resultados_estudiante',
